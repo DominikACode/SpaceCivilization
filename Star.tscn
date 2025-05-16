@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bipajmsw72hc5"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_1b021"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_1b021"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_1b021")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+shape = SubResource("SphereShape3D_1b021")

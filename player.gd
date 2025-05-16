@@ -1,0 +1,17 @@
+extends RigidBody3D
+var speed=5
+var goal
+var direction=Vector3(0,0,0)
+func move(g:Vector3):
+	goal=g
+	direction= global_position.direction_to(goal)
+	get_node("RocketMesh").rotation=Vector3(0,0,90)
+	get_node("RocketMesh").rotate_y(-atan2(goal.z-position.z,goal.x-position.x))
+func _process(delta: float) -> void:
+	linear_velocity=speed*direction
+	if goal!=null:
+		if global_position.distance_to(goal)<0.1:
+			global_position=goal
+			linear_velocity=Vector3(0,0,0)
+			direction=Vector3(0,0,0)
+			
