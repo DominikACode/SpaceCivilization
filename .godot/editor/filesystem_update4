@@ -1,0 +1,6 @@
+res://MainMap.tscn
+res://PlayerMaterial.tres
+res://Player.tscn
+res://MapGenerator.tscn
+res://Star.tscn
+res://path.tscn

@@ -1,0 +1,11 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1747439752
+icon.svg::CompressedTexture2D/CompressedTexture2D::1572946343198893354::1747396915::1747396922::1::::<><><>0<>0<>81b6f8936c72d5ed81e089b8c9b66df9<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+MainMap.tscn::PackedScene::6484832984076799036::1747435609::0::1::::<><><>0<>0<><>::uid://dt0mv0rtgyk4a::::res://Player.tscn<>uid://b2x1doallsa3u::::res://MapGenerator.tscn
+MapGenerator.tscn::PackedScene::4330584885299092844::1747435609::0::1::::<><><>0<>0<><>::uid://clo8iqckv07q8::::res://map_generator.gd
+map_generator.gd::GDScript/GDScript::5575838727020576281::1747432650::0::1::::<>Node3D<><>0<>0<><>::
+path.tscn::PackedScene::838953649316053615::1747435609::0::1::::<><><>0<>0<><>::uid://onnvb564x2qu::::res://PlayerMaterial.tres
+player.gd::GDScript::2506964158554559393::1747435609::0::1::::<>RigidBody3D<><>0<>0<><>::
+Player.tscn::PackedScene::8545226969856288834::1747435609::0::1::::<><><>0<>0<><>::uid://bbynlloyjmjw8::::res://player.gd<>uid://onnvb564x2qu::::res://PlayerMaterial.tres
+PlayerMaterial.tres::StandardMaterial3D::1010307644628867592::1747433522::0::1::::<><><>0<>0<><>::
+Star.tscn::PackedScene::2978913830383493526::1747435609::0::1::::<><><>0<>0<><>::
