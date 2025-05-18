@@ -2,6 +2,8 @@
 
 [resource]
 transparency = 1
-albedo_color = Color(0.390588, 0.770635, 0.594458, 0.588235)
-emission = Color(0.392157, 0.772549, 0.596078, 1)
-emission_energy_multiplier = 1.9
+cull_mode = 1
+shading_mode = 0
+diffuse_mode = 1
+albedo_color = Color(0.764706, 1, 1, 0.0235294)
+refraction_scale = -0.62

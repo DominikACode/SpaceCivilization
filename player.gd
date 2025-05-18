@@ -5,8 +5,7 @@ var direction=Vector3(0,0,0)
 func move(g:Vector3):
 	goal=g
 	direction= global_position.direction_to(goal)
-	get_node("RocketMesh").rotation=Vector3(0,0,90)
-	get_node("RocketMesh").rotate_y(-atan2(goal.z-position.z,goal.x-position.x))
+	get_node("RocketMesh").look_at(goal+Vector3(0,1,0))
 func _process(delta: float) -> void:
 	linear_velocity=speed*direction
 	if goal!=null:

@@ -1,4 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://bipajmsw72hc5"]
+[gd_scene load_steps=4 format=3 uid="uid://bipajmsw72hc5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1b021"]
+albedo_color = Color(0.811765, 0.337255, 0.239216, 1)
+emission_enabled = true
+emission = Color(0.858824, 0.52549, 0.247059, 1)
+emission_energy_multiplier = 16.0
 
 [sub_resource type="SphereMesh" id="SphereMesh_1b021"]
 
@@ -7,6 +13,8 @@
 [node name="Node3D" type="Node3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_1b021")
+cast_shadow = 0
 mesh = SubResource("SphereMesh_1b021")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
@@ -14,3 +22,7 @@ mesh = SubResource("SphereMesh_1b021")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 shape = SubResource("SphereShape3D_1b021")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+light_energy = 4.962
+shadow_enabled = true

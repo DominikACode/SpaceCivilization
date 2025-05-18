@@ -22,7 +22,7 @@ func placeStars() -> void:
 			if rng.randf()<0.6 :
 				var point = preload("res://Star.tscn").instantiate()
 				add_child(point)
-				point.global_position=Vector3(j*6+rng.randf_range(0,5),0,i*6+rng.randf_range(0,5))
+				point.global_position=Vector3(j*4+rng.randf_range(0,2.5),0,i*6+rng.randf_range(0,2.5))
 				var rngScale=rng.randf_range(0.25,0.75);
 				point.scale=Vector3(rngScale,rngScale,rngScale)
 #connects the stars with starlanes 2 per star to the closest neighbors
@@ -52,7 +52,7 @@ func connectStars() ->void:
 				astar3.connect_points(pointID,idToConnect,true)
 				var path = preload("res://path.tscn").instantiate()
 				add_child(path)
-				path.scale=Vector3(sortedDistOfPoints[k]/2,0.1,0.1)
+				path.scale=Vector3(sortedDistOfPoints[k]/2,0.05,0.05)
 				path.global_position=pointPosition
 				#find rotation angle needed for cylinders then rotate them
 				path.rotate_y(-atan2(dictOfPoints[idToConnect].position.z-path.position.z,dictOfPoints[idToConnect].position.x-path.position.x))
