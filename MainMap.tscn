@@ -14,8 +14,12 @@ process_mode = 3
 [sub_resource type="Environment" id="Environment_cccdv"]
 background_mode = 2
 sky = SubResource("Sky_ifu8d")
-tonemap_mode = 2
 glow_enabled = true
+fog_light_energy = 0.16
+fog_sun_scatter = 0.31
+fog_aerial_perspective = 1.0
+volumetric_fog_density = 0.0
+volumetric_fog_length = 10.11
 
 [node name="World" type="Node3D"]
 

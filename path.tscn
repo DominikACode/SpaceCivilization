@@ -1,18 +1,39 @@
 [gd_scene load_steps=4 format=3 uid="uid://l7npdkhm2gkl"]
 
-[ext_resource type="Shader" uid="uid://bcuiwst7wqp7m" path="res://path.tres" id="1_jnavc"]
+[ext_resource type="Shader" uid="uid://csyuw6fa1hca5" path="res://path.gdshader" id="1_jnavc"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_ckofj"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ckofj"]
 render_priority = 0
 shader = ExtResource("1_jnavc")
-shader_parameter/Scanline_color = Color(0, 0, 0, 1)
+shader_parameter/core_color = Color(1, 1, 1, 1)
+shader_parameter/glow_color = Color(0.235294, 0.368627, 0.545098, 1)
+shader_parameter/laser_width = 0.499
+shader_parameter/core_intensity = 0.1
+shader_parameter/core_length = 1.0
+shader_parameter/glow_fade = 0.772
+shader_parameter/glow_shape = 0.1
+shader_parameter/pulse_speed = 1.326
+shader_parameter/pulse_strength = 0.3
+shader_parameter/pulse_dir_x = 0.0
+shader_parameter/pulse_dir_y = 0.0
+shader_parameter/pulse_dir_z = 1.0
+shader_parameter/min_alpha = 0.82
+shader_parameter/noise_scale = 20.0
+shader_parameter/noise_speed = 5.0
+shader_parameter/noise_strength = 0.1
+shader_parameter/length_noise_scale = 2.0
+shader_parameter/length_noise_speed = 0.5
+shader_parameter/length_noise_strength = 0.05
+shader_parameter/osc_amplitude = 0.0
+shader_parameter/osc_frequency = 5.0
+shader_parameter/osc_speed = 2.472
 
 [node name="Node3D" type="Node3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 1, 0, 0)
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.994765, 0.00586343, -0.0026207)
 cast_shadow = 0
 gi_mode = 0
 mesh = SubResource("CylinderMesh_ckofj")

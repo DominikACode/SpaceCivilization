@@ -1,7 +1,8 @@
 res://path.tscn
-res://PlayerMaterial.tres
+res://path.gdshader
 res://path.tres
 res://MainMap.tscn
 res://Player.tscn
 res://MapGenerator.tscn
 res://Star.tscn
+res://Star.gdshader
