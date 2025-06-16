@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cynkitc22bamm"]
+[gd_scene load_steps=10 format=3 uid="uid://cynkitc22bamm"]
 
 [ext_resource type="Texture2D" uid="uid://2t488jvkh5tk" path="res://panorama_image.png" id="1_cccdv"]
 [ext_resource type="PackedScene" uid="uid://dt0mv0rtgyk4a" path="res://Player.tscn" id="1_knh7k"]
 [ext_resource type="PackedScene" uid="uid://b2x1doallsa3u" path="res://MapGenerator.tscn" id="2_ifu8d"]
+[ext_resource type="Script" uid="uid://b60knqkl3kr7x" path="res://control.gd" id="4_x4u1r"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_x4u1r"]
 panorama = ExtResource("1_cccdv")
@@ -17,6 +18,21 @@ sky = SubResource("Sky_ifu8d")
 tonemap_mode = 2
 glow_enabled = true
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x4u1r"]
+bg_color = Color(0.484742, 0.038263, 0.683125, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.192219, 0.406887, 0.868778, 1)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="LabelSettings" id="LabelSettings_x4u1r"]
+
 [node name="World" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -28,3 +44,58 @@ environment = SubResource("Environment_cccdv")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+custom_minimum_size = Vector2(150, 100)
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -180.0
+offset_bottom = 100.0
+grow_horizontal = 0
+script = ExtResource("4_x4u1r")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Control"]
+clip_contents = true
+layout_mode = 0
+offset_left = -25.0
+offset_top = -2.0
+offset_right = 155.0
+offset_bottom = 51.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_x4u1r")
+
+[node name="PlayerNameLabel" type="Label" parent="CanvasLayer/Control/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -78.0
+offset_top = -19.5
+offset_right = 78.0
+offset_bottom = 3.5
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_x4u1r")
+horizontal_alignment = 3
+vertical_alignment = 1
+justification_flags = 1
+
+[node name="Button" type="Button" parent="CanvasLayer/Control/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.503
+anchor_top = 0.5
+anchor_right = 0.503
+anchor_bottom = 0.5
+offset_left = -79.54
+offset_top = 5.5
+offset_right = 75.46
+offset_bottom = 36.5
+text = "End Turn"
+
+[connection signal="pressed" from="CanvasLayer/Control/Panel/Button" to="CanvasLayer/Control" method="_on_button_pressed"]

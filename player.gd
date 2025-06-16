@@ -2,6 +2,9 @@ extends RigidBody3D
 var speed=5
 var goal
 var direction=Vector3(0,0,0)
+func _ready():
+	set_meta("name", "Commander X")  # You can customize this
+	
 func move(g:Vector3):
 	goal=g
 	direction= global_position.direction_to(goal)

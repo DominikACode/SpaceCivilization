@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://cynkitc22bamm"]
+
+[ext_resource type="Texture2D" uid="uid://2t488jvkh5tk" path="res://panorama_image.png" id="1_cccdv"]
+[ext_resource type="PackedScene" uid="uid://dt0mv0rtgyk4a" path="res://Player.tscn" id="1_knh7k"]
+[ext_resource type="PackedScene" uid="uid://b2x1doallsa3u" path="res://MapGenerator.tscn" id="2_ifu8d"]
+[ext_resource type="Script" uid="uid://b60knqkl3kr7x" path="res://control.gd" id="4_x4u1r"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_x4u1r"]
+panorama = ExtResource("1_cccdv")
+
+[sub_resource type="Sky" id="Sky_ifu8d"]
+sky_material = SubResource("PanoramaSkyMaterial_x4u1r")
+process_mode = 3
+
+[sub_resource type="Environment" id="Environment_cccdv"]
+background_mode = 2
+sky = SubResource("Sky_ifu8d")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="World" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_cccdv")
+
+[node name="Player" parent="." instance=ExtResource("1_knh7k")]
+
+[node name="MapGenerator" parent="." instance=ExtResource("2_ifu8d")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("4_x4u1r")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/Panel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
