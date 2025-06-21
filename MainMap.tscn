@@ -15,8 +15,12 @@ process_mode = 3
 [sub_resource type="Environment" id="Environment_cccdv"]
 background_mode = 2
 sky = SubResource("Sky_ifu8d")
-tonemap_mode = 2
 glow_enabled = true
+fog_light_energy = 0.16
+fog_sun_scatter = 0.31
+fog_aerial_perspective = 1.0
+volumetric_fog_density = 0.0
+volumetric_fog_length = 10.11
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x4u1r"]
 bg_color = Color(0.484742, 0.038263, 0.683125, 1)

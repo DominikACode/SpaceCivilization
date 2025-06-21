@@ -1,20 +1,45 @@
-[gd_scene load_steps=4 format=3 uid="uid://bipajmsw72hc5"]
+[gd_scene load_steps=10 format=3 uid="uid://bipajmsw72hc5"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1b021"]
-albedo_color = Color(0.811765, 0.337255, 0.239216, 1)
-emission_enabled = true
-emission = Color(0.858824, 0.52549, 0.247059, 1)
-emission_energy_multiplier = 16.0
+[ext_resource type="Shader" uid="uid://c5cwv1aru7sbl" path="res://Star.gdshader" id="1_12qeu"]
+[ext_resource type="Script" uid="uid://bey576l2kpehn" path="res://star.gd" id="1_f880y"]
+[ext_resource type="Texture2D" uid="uid://dstj2lrnnlyie" path="res://Turbulence 13 - 512x512.png" id="2_12qeu"]
+[ext_resource type="Shader" uid="uid://c4dhfw57bu84b" path="res://outline.gdshader" id="2_w3s8k"]
+[ext_resource type="Texture2D" uid="uid://1ginnlvrg6rt" path="res://Super Perlin 1 - 512x512.png" id="3_f880y"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_imql4"]
+render_priority = 0
+shader = ExtResource("2_w3s8k")
+shader_parameter/color = Color(200, 200, 200, 1)
+shader_parameter/thickness = 0.07
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vk50b"]
+render_priority = 0
+shader = ExtResource("1_12qeu")
+shader_parameter/Glow_Power = 10.0
+shader_parameter/Lightness_Difference = 10.0
+shader_parameter/Sun_Color = Color(0.612743, 0.157302, 0, 1)
+shader_parameter/Core_Color = Color(0.539797, 0, 0.00658626, 1)
+shader_parameter/voronoi_noise = ExtResource("3_f880y")
+shader_parameter/emission_noise = ExtResource("2_12qeu")
+shader_parameter/waveSpeed = 0.265
+shader_parameter/fresnel = 1.593
+shader_parameter/scale = 2.0
+shader_parameter/blendSharpness = 0.0
 
 [sub_resource type="SphereMesh" id="SphereMesh_1b021"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_1b021"]
 
-[node name="Node3D" type="Node3D"]
+[node name="Node3D" type="Node3D" node_paths=PackedStringArray("mesh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18533, 0)
+script = ExtResource("1_f880y")
+mesh = NodePath("MeshInstance3D")
+selectionMaterial = SubResource("ShaderMaterial_imql4")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-material_override = SubResource("StandardMaterial3D_1b021")
+material_override = SubResource("ShaderMaterial_vk50b")
 cast_shadow = 0
+gi_mode = 0
 mesh = SubResource("SphereMesh_1b021")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
@@ -23,6 +48,4 @@ mesh = SubResource("SphereMesh_1b021")
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 shape = SubResource("SphereShape3D_1b021")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
-light_energy = 4.962
-shadow_enabled = true
+[connection signal="input_event" from="MeshInstance3D/StaticBody3D" to="." method="_on_static_body_3d_input_event"]
