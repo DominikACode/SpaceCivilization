@@ -1,8 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://bipajmsw72hc5"]
+[gd_scene load_steps=10 format=3 uid="uid://bipajmsw72hc5"]
 
 [ext_resource type="Shader" uid="uid://c5cwv1aru7sbl" path="res://Star.gdshader" id="1_12qeu"]
+[ext_resource type="Script" uid="uid://bey576l2kpehn" path="res://star.gd" id="1_f880y"]
 [ext_resource type="Texture2D" uid="uid://dstj2lrnnlyie" path="res://Turbulence 13 - 512x512.png" id="2_12qeu"]
+[ext_resource type="Shader" uid="uid://c4dhfw57bu84b" path="res://outline.gdshader" id="2_w3s8k"]
 [ext_resource type="Texture2D" uid="uid://1ginnlvrg6rt" path="res://Super Perlin 1 - 512x512.png" id="3_f880y"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_imql4"]
+render_priority = 0
+shader = ExtResource("2_w3s8k")
+shader_parameter/color = Color(200, 200, 200, 1)
+shader_parameter/thickness = 0.07
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vk50b"]
 render_priority = 0
@@ -22,7 +30,11 @@ shader_parameter/blendSharpness = 0.0
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_1b021"]
 
-[node name="Node3D" type="Node3D"]
+[node name="Node3D" type="Node3D" node_paths=PackedStringArray("mesh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18533, 0)
+script = ExtResource("1_f880y")
+mesh = NodePath("MeshInstance3D")
+selectionMaterial = SubResource("ShaderMaterial_imql4")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 material_override = SubResource("ShaderMaterial_vk50b")
@@ -35,3 +47,5 @@ mesh = SubResource("SphereMesh_1b021")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 shape = SubResource("SphereShape3D_1b021")
+
+[connection signal="input_event" from="MeshInstance3D/StaticBody3D" to="." method="_on_static_body_3d_input_event"]

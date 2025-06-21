@@ -1,8 +1,14 @@
-res://path.tscn
+res://outline.gdshader
+res://SpaceShip.tscn
+res://Star.gdshader
 res://path.gdshader
-res://path.tres
+res://map_generator.gd
 res://MainMap.tscn
 res://Player.tscn
 res://MapGenerator.tscn
 res://Star.tscn
-res://Star.gdshader
+res://path.tscn
+res://space_ship.gd
+res://higlightOutline.gdshader
+res://star.gd
+res://player.gd
