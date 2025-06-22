@@ -15,8 +15,9 @@ func _ready():
 	
 	
 func update_turn_label():
-	var player_name = player.get_meta("name")
-	label.text =str( "Turn: " + str(player_name))
+	#var player_name = player.get_meta("name")
+	#label.text =str( "Turn: " + str(player_name))
+	pass
 
 
 func _on_button_pressed() -> void:

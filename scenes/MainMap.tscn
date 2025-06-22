@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cynkitc22bamm"]
+[gd_scene load_steps=8 format=3 uid="uid://cynkitc22bamm"]
 
 [ext_resource type="PackedScene" uid="uid://j3woybp746pt" path="res://scenes/game.tscn" id="2_2t08r"]
+[ext_resource type="PackedScene" uid="uid://6d8o6hk7l2o1" path="res://scenes/transition_manager.tscn" id="4_1kkdm"]
 [ext_resource type="Script" uid="uid://b60knqkl3kr7x" path="res://scripts/control.gd" id="4_2m761"]
 [ext_resource type="PackedScene" uid="uid://bmj2ggh33vcy" path="res://scenes/main_menu.tscn" id="5_6ic70"]
+[ext_resource type="PackedScene" uid="uid://cky8yh6tjutss" path="res://scenes/game_settings_menu.tscn" id="5_82ayj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x4u1r"]
 bg_color = Color(0.484742, 0.038263, 0.683125, 1)
@@ -21,9 +23,9 @@ corner_radius_bottom_left = 10
 
 [node name="Game" type="Node"]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="in_game_gui" type="CanvasLayer" parent="."]
 
-[node name="UI" type="Control" parent="CanvasLayer"]
+[node name="UI" type="Control" parent="in_game_gui"]
 custom_minimum_size = Vector2(150, 100)
 layout_mode = 3
 anchors_preset = 1
@@ -34,7 +36,7 @@ offset_bottom = 100.0
 grow_horizontal = 0
 script = ExtResource("4_2m761")
 
-[node name="TurnButton" type="Panel" parent="CanvasLayer/UI"]
+[node name="TurnButton" type="Panel" parent="in_game_gui/UI"]
 clip_contents = true
 layout_mode = 0
 offset_left = -25.0
@@ -43,7 +45,7 @@ offset_right = 155.0
 offset_bottom = 51.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_x4u1r")
 
-[node name="PlayerNameLabel" type="Label" parent="CanvasLayer/UI/TurnButton"]
+[node name="PlayerNameLabel" type="Label" parent="in_game_gui/UI/TurnButton"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -61,7 +63,7 @@ horizontal_alignment = 3
 vertical_alignment = 1
 justification_flags = 1
 
-[node name="Button" type="Button" parent="CanvasLayer/UI/TurnButton"]
+[node name="Button" type="Button" parent="in_game_gui/UI/TurnButton"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.503
@@ -76,9 +78,24 @@ text = "End Turn"
 
 [node name="Game" parent="." instance=ExtResource("2_2t08r")]
 
+[node name="TransitionManager" parent="." instance=ExtResource("4_1kkdm")]
+layer = 10
+
+[node name="CircleMask" parent="TransitionManager" index="0"]
+visibility_layer = 0
+z_as_relative = false
+
 [node name="MainMenu" parent="." instance=ExtResource("5_6ic70")]
 
-[connection signal="pressed" from="CanvasLayer/UI/TurnButton/Button" to="CanvasLayer/UI" method="_on_button_pressed"]
+[node name="GameSettingsMenu" parent="." instance=ExtResource("5_82ayj")]
+visible = false
+
+[node name="Sprite2D" parent="GameSettingsMenu" index="0"]
+z_as_relative = false
+
+[connection signal="pressed" from="in_game_gui/UI/TurnButton/Button" to="in_game_gui/UI" method="_on_button_pressed"]
 
 [editable path="Game"]
+[editable path="TransitionManager"]
 [editable path="MainMenu"]
+[editable path="GameSettingsMenu"]

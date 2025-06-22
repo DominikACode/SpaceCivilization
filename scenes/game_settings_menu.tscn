@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://cky8yh6tjutss"]
+
+[ext_resource type="Texture2D" uid="uid://bnsovlqi0ao4b" path="res://assets/GameSettingsMenu/GameSettings_background.jpeg" id="1_lbi3t"]
+[ext_resource type="Script" uid="uid://gsh6a5q53g77" path="res://scenes/sprite_2d.gd" id="2_7uyk2"]
+
+[node name="GameSettingsMenu" type="CanvasLayer"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("1_lbi3t")
+script = ExtResource("2_7uyk2")
+
+[node name="Player_choose_menu" type="Container" parent="."]
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -312.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Player_choose_menu"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="Player_choose_menu/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+toggle_mode = true
+action_mode = 0
