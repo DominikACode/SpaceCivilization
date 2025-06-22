@@ -1,9 +1,9 @@
 extends Control
 
 
-@onready var label = $Panel/PlayerNameLabel  # Update path if needed
-@onready var turn_button = $Panel/Button  # Or $Button if it's outside Panel
-@onready var player = get_tree().get_root().get_node("World/Player")  # Adjust path to your player node
+@onready var label = $TurnButton/PlayerNameLabel  # Update path if needed
+@onready var turn_button = $TurnButton/Button  # Or $Button if it's outside Panel
+@onready var player = get_tree().get_root().get_node("Game/Game/Player")  # Adjust path to your player node
 
 func _ready():
 	update_turn_label()

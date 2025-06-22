@@ -1,0 +1,71 @@
+[gd_scene load_steps=6 format=3 uid="uid://bmj2ggh33vcy"]
+
+[ext_resource type="Texture2D" uid="uid://exrf528wyc7e" path="res://assets/MainMenu/mainmenu_theme.jpg" id="1_l6cm7"]
+[ext_resource type="Script" uid="uid://cirggkowo8sxx" path="res://scripts/new_game.gd" id="2_8ln24"]
+[ext_resource type="Script" uid="uid://b6g8ysnxop8bf" path="res://scripts/load_game.gd" id="3_rtw2f"]
+[ext_resource type="Script" uid="uid://dbmbxcdjdjiqu" path="res://scripts/settings.gd" id="4_oa1go"]
+[ext_resource type="Script" uid="uid://brxkq5whyhrqo" path="res://scripts/exit.gd" id="5_tbmy8"]
+
+[node name="MainMenu" type="CanvasLayer"]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("1_l6cm7")
+flip_h = true
+
+[node name="Menu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StartMenu" type="VBoxContainer" parent="Menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -225.0
+offset_top = 175.0
+offset_right = 225.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="New_game" type="Button" parent="Menu/StartMenu"]
+layout_mode = 2
+text = "New game"
+script = ExtResource("2_8ln24")
+
+[node name="MarginContainer" type="MarginContainer" parent="Menu/StartMenu"]
+layout_mode = 2
+theme_override_constants/margin_top = 2
+
+[node name="Load_game" type="Button" parent="Menu/StartMenu"]
+layout_mode = 2
+text = "Load game"
+script = ExtResource("3_rtw2f")
+
+[node name="MarginContainer2" type="MarginContainer" parent="Menu/StartMenu"]
+layout_mode = 2
+theme_override_constants/margin_top = 2
+
+[node name="Settings" type="Button" parent="Menu/StartMenu"]
+layout_mode = 2
+text = "Settings"
+script = ExtResource("4_oa1go")
+
+[node name="MarginContainer3" type="MarginContainer" parent="Menu/StartMenu"]
+layout_mode = 2
+theme_override_constants/margin_top = 2
+
+[node name="Exit" type="Button" parent="Menu/StartMenu"]
+layout_mode = 2
+text = "Exit to pulpit"
+script = ExtResource("5_tbmy8")
+
+[connection signal="pressed" from="Menu/StartMenu/New_game" to="Menu/StartMenu/New_game" method="_on_Newgame_pressed"]
+[connection signal="pressed" from="Menu/StartMenu/Exit" to="Menu/StartMenu/Exit" method="_on_Exit_pressed"]

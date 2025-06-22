@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dt0mv0rtgyk4a"]
 
-[ext_resource type="Script" uid="uid://bbynlloyjmjw8" path="res://player.gd" id="1_kpjcp"]
+[ext_resource type="Script" uid="uid://bbynlloyjmjw8" path="res://scripts/player.gd" id="1_kpjcp"]
 
 [node name="Node3D" type="RigidBody3D"]
 mass = 1.064

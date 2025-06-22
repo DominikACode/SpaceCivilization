@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://kk6wv12snsdy"
-path.s3tc="res://.godot/imported/Perlin 1 - 512x512.png-59d5a8c43d9034dc4419a292d774053e.s3tc.ctex"
+uid="uid://dstj2lrnnlyie"
+path.s3tc="res://.godot/imported/Turbulence 13 - 512x512.png-b40b997001d5fef052a60b7ba0b681e7.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Perlin 1 - 512x512.png"
-dest_files=["res://.godot/imported/Perlin 1 - 512x512.png-59d5a8c43d9034dc4419a292d774053e.s3tc.ctex"]
+source_file="res://assets/Turbulence 13 - 512x512.png"
+dest_files=["res://.godot/imported/Turbulence 13 - 512x512.png-b40b997001d5fef052a60b7ba0b681e7.s3tc.ctex"]
 
 [params]
 

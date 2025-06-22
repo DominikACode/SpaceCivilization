@@ -1,0 +1,34 @@
+[gd_scene load_steps=7 format=3 uid="uid://j3woybp746pt"]
+
+[ext_resource type="Texture2D" uid="uid://2t488jvkh5tk" path="res://assets/panorama_image.png" id="1_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://dt0mv0rtgyk4a" path="res://scenes/Player.tscn" id="2_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://b2x1doallsa3u" path="res://scenes/MapGenerator.tscn" id="3_iywne"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_x4u1r"]
+panorama = ExtResource("1_lnu2h")
+
+[sub_resource type="Sky" id="Sky_ifu8d"]
+sky_material = SubResource("PanoramaSkyMaterial_x4u1r")
+process_mode = 3
+
+[sub_resource type="Environment" id="Environment_cccdv"]
+background_mode = 2
+sky = SubResource("Sky_ifu8d")
+glow_enabled = true
+fog_light_energy = 0.16
+fog_sun_scatter = 0.31
+fog_aerial_perspective = 1.0
+volumetric_fog_density = 0.0
+volumetric_fog_length = 10.11
+
+[node name="GameScript" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_cccdv")
+
+[node name="Player" parent="." instance=ExtResource("2_lbhrr")]
+
+[node name="MapGenerator" parent="." instance=ExtResource("3_iywne")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)

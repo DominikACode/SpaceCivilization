@@ -1,18 +1,18 @@
 [gd_scene load_steps=8 format=3 uid="uid://dmdk4q4salsi1"]
 
-[ext_resource type="Script" uid="uid://dutr56euw2vjv" path="res://space_ship.gd" id="1_cjnfv"]
-[ext_resource type="Shader" uid="uid://cxr8ru5hwnmqv" path="res://higlightOutline.gdshader" id="2_cqcgy"]
-[ext_resource type="Shader" uid="uid://c4dhfw57bu84b" path="res://outline.gdshader" id="3_mxenu"]
+[ext_resource type="Script" uid="uid://dutr56euw2vjv" path="res://scripts/space_ship.gd" id="1_qw07e"]
+[ext_resource type="Shader" uid="uid://cxr8ru5hwnmqv" path="res://shaders/higlightOutline.gdshader" id="2_tjp6f"]
+[ext_resource type="Shader" uid="uid://c4dhfw57bu84b" path="res://shaders/outline.gdshader" id="3_kapxi"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xra4r"]
 render_priority = 0
-shader = ExtResource("2_cqcgy")
+shader = ExtResource("2_tjp6f")
 shader_parameter/color = Color(1, 0.866395, 0.571788, 1)
 shader_parameter/thickness = 0.03
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ye60j"]
 render_priority = 0
-shader = ExtResource("3_mxenu")
+shader = ExtResource("3_kapxi")
 shader_parameter/color = Color(200, 200, 200, 1)
 shader_parameter/thickness = 0.07
 
@@ -22,7 +22,7 @@ shader_parameter/thickness = 0.07
 data = PackedVector3Array(0, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0, 0.5, 0.5, 0, 0.5, -0.5, 0.5, -0.5, 0.5, 0, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0, 0.5, -0.5, 0, 0.5, 0.5, -0.5, -0.5, -0.5, 0, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 
 [node name="SpaceShip" type="Node3D" node_paths=PackedStringArray("mesh")]
-script = ExtResource("1_cjnfv")
+script = ExtResource("1_qw07e")
 mesh = NodePath("RocketMesh")
 highlightMaterial = SubResource("ShaderMaterial_xra4r")
 selectionMaterial = SubResource("ShaderMaterial_ye60j")

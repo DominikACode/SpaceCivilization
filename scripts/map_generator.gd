@@ -19,7 +19,7 @@ func placeStars() -> void:
 	for i in range(15):
 		for j in range(15):
 			if rng.randf()<0.7 :
-				var point = preload("res://Star.tscn").instantiate()
+				var point = preload("res://scenes/Star.tscn").instantiate()
 				add_child(point)
 				point.global_position=Vector3(j*4+rng.randf_range(0,3),0,i*6+rng.randf_range(0,3))
 				var rngScale=rng.randf_range(0.2,0.6);
@@ -56,7 +56,7 @@ func connectStars() ->void:
 			if smallestAngleBetweenPoints(pointID,idToConnect)>0.2:
 				astar3.connect_points(pointID,idToConnect,true)
 				#spawns stretches and rotates path objects to visually reprisent connections
-				var path = preload("res://path.tscn").instantiate()
+				var path = preload("res:///scenes/path.tscn").instantiate()
 				add_child(path)
 				path.scale=Vector3(sortedDistOfPoints[k]/2,0.05,0.05)
 				path.global_position=pointPosition
@@ -68,7 +68,7 @@ func placePlayer() ->void:
 	points=astar3.get_point_ids()
 	playerPoint=points.pick_random()
 	player.global_position= astar3.get_point_position(playerPoint)
-	var startingShip = preload("res://SpaceShip.tscn").instantiate()
+	var startingShip = preload("res:///scenes/SpaceShip.tscn").instantiate()
 	add_child(startingShip)
 	startingShip.position=astar3.get_point_position(playerPoint)
 func smallestAngleBetweenPoints(pointIn,pointTo)->float:
