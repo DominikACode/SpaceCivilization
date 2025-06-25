@@ -18,6 +18,7 @@ config/icon="res://assets/icon.svg"
 [autoload]
 
 TransitionManager="*res://scenes/transition_manager.tscn"
+InGameGui="*res://scenes/in_game_gui.tscn"
 
 [display]
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cky8yh6tjutss"]
 
 [ext_resource type="Texture2D" uid="uid://bnsovlqi0ao4b" path="res://assets/GameSettingsMenu/GameSettings_background.jpeg" id="1_lbi3t"]
-[ext_resource type="Script" uid="uid://gsh6a5q53g77" path="res://scenes/sprite_2d.gd" id="2_7uyk2"]
+[ext_resource type="Script" uid="uid://gsh6a5q53g77" path="res://scripts/sprite_2d.gd" id="2_7uyk2"]
 
 [node name="GameSettingsMenu" type="CanvasLayer"]
 
@@ -29,3 +29,9 @@ layout_mode = 2
 size_flags_vertical = 3
 toggle_mode = true
 action_mode = 0
+
+[node name="CheckButton" type="CheckButton" parent="."]
+offset_left = 1651.0
+offset_top = 212.0
+offset_right = 1695.0
+offset_bottom = 236.0

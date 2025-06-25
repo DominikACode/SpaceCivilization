@@ -30,7 +30,7 @@ shader_parameter/blendSharpness = 0.0
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_1b021"]
 
-[node name="Node3D" type="Node3D" node_paths=PackedStringArray("mesh")]
+[node name="Star" type="Node3D" node_paths=PackedStringArray("mesh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18533, 0)
 script = ExtResource("1_q7s46")
 mesh = NodePath("MeshInstance3D")
@@ -47,5 +47,12 @@ mesh = SubResource("SphereMesh_1b021")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 shape = SubResource("SphereShape3D_1b021")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.998932, 0.0461999, 0, -0.0461999, 0.998932, -0.00121069, 1.35083, 1.72219)
+billboard = 1
+text = "empty_txt"
+font_size = 110
+outline_size = 6
 
 [connection signal="input_event" from="MeshInstance3D/StaticBody3D" to="." method="_on_static_body_3d_input_event"]

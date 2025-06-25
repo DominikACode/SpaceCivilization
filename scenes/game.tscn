@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://j3woybp746pt"]
+[gd_scene load_steps=8 format=3 uid="uid://j3woybp746pt"]
 
+[ext_resource type="Script" uid="uid://cbes03filx7wf" path="res://scenes/game.gd" id="1_lbhrr"]
 [ext_resource type="Texture2D" uid="uid://2t488jvkh5tk" path="res://assets/panorama_image.png" id="1_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://dt0mv0rtgyk4a" path="res://scenes/Player.tscn" id="2_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://b2x1doallsa3u" path="res://scenes/MapGenerator.tscn" id="3_iywne"]
@@ -21,7 +22,8 @@ fog_aerial_perspective = 1.0
 volumetric_fog_density = 0.0
 volumetric_fog_length = 10.11
 
-[node name="GameScript" type="Node3D"]
+[node name="Game3D" type="Node3D"]
+script = ExtResource("1_lbhrr")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_cccdv")
