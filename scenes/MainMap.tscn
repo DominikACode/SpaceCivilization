@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bipajmsw72hc5" path="res://scenes/Star.tscn" id="3_82ayj"]
 [ext_resource type="PackedScene" uid="uid://6d8o6hk7l2o1" path="res://scenes/transition_manager.tscn" id="4_1kkdm"]
 [ext_resource type="PackedScene" uid="uid://bmj2ggh33vcy" path="res://scenes/main_menu.tscn" id="5_6ic70"]
-[ext_resource type="PackedScene" uid="uid://cky8yh6tjutss" path="res://scenes/game_settings_menu.tscn" id="5_82ayj"]
+[ext_resource type="PackedScene" uid="uid://cky8yh6tjutss" path="res://scenes/settings_menu.tscn" id="5_82ayj"]
 
 [node name="Game" type="Node"]
 

@@ -8,7 +8,7 @@ extends RigidBody3D
 var velocity = Vector3.ZERO
 var angularVelocity = 0.0
 func _ready():
-	set_meta("name", "Commander X")  # You can customize this
+	set_meta("name", GameSettings.player_name)
 	
 func _process(delta: float) -> void:
 	var velocity = Vector3.ZERO
