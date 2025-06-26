@@ -47,6 +47,7 @@ func _on_start_pressed():
 	GameSettings.character_type = character_select.get_item_text(character_select.selected)
 	
 	TransitionManager.transition_to_scene("res://scenes/game.tscn")
+	InGameGui.visible = true
 
 func _on_back_pressed():
 	TransitionManager.transition_to_scene("res://scenes/main_menu.tscn")

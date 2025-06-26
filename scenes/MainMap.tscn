@@ -1,8 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://cynkitc22bamm"]
+[gd_scene load_steps=7 format=3 uid="uid://cynkitc22bamm"]
 
 [ext_resource type="PackedScene" uid="uid://xw6yp13j3p4c" path="res://scenes/in_game_gui.tscn" id="1_6ic70"]
 [ext_resource type="PackedScene" uid="uid://j3woybp746pt" path="res://scenes/game.tscn" id="2_2t08r"]
-[ext_resource type="Script" uid="uid://cbes03filx7wf" path="res://scenes/game.gd" id="3_2m761"]
 [ext_resource type="PackedScene" uid="uid://bipajmsw72hc5" path="res://scenes/Star.tscn" id="3_82ayj"]
 [ext_resource type="PackedScene" uid="uid://6d8o6hk7l2o1" path="res://scenes/transition_manager.tscn" id="4_1kkdm"]
 [ext_resource type="PackedScene" uid="uid://bmj2ggh33vcy" path="res://scenes/main_menu.tscn" id="5_6ic70"]
@@ -16,7 +15,6 @@
 mouse_force_pass_scroll_events = false
 
 [node name="Game3D" parent="." instance=ExtResource("2_2t08r")]
-script = ExtResource("3_2m761")
 
 [node name="Star" parent="Game3D/MapGenerator" index="0" instance=ExtResource("3_82ayj")]
 
@@ -33,6 +31,18 @@ visible = false
 
 [node name="Sprite2D" parent="GameSettingsMenu" index="0"]
 z_as_relative = false
+
+[node name="TextureRect (CharacterPreview)" parent="GameSettingsMenu" index="1"]
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 517.0
+offset_bottom = 632.0
+
+[node name="VBoxContainer" parent="GameSettingsMenu" index="2"]
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 277.0
+offset_bottom = 426.0
 
 [editable path="in_game_gui"]
 [editable path="Game3D"]

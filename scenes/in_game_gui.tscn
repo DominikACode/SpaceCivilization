@@ -26,6 +26,7 @@ corner_radius_bottom_left = 10
 [node name="in_game_gui" type="CanvasLayer"]
 
 [node name="UI" type="Control" parent="."]
+visible = false
 custom_minimum_size = Vector2(150, 100)
 layout_mode = 3
 anchors_preset = 15
