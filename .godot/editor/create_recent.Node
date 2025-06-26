@@ -1,5 +1,10 @@
-Button
 VBoxContainer
+HBoxContainer
+TextureRect
+OptionButton
+LineEdit
+Label
+Button
 Container
 Sprite2D
 AnimationPlayer
@@ -7,8 +12,3 @@ ColorRect
 CanvasLayer
 MarginContainer
 Control
-Node3D
-Node
-Panel
-Label
-CollisionShape3D
