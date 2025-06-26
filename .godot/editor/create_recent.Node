@@ -1,3 +1,4 @@
+Control
 VBoxContainer
 HBoxContainer
 TextureRect
@@ -11,4 +12,3 @@ AnimationPlayer
 ColorRect
 CanvasLayer
 MarginContainer
-Control

@@ -14,3 +14,5 @@ res://scenes/settings_menu.tscn
 res://scripts/new_game.gd
 res://scripts/player.gd
 res://scripts/settings_menu.gd
+res://scenes/sprite_2d.gd
+res://scenes/settings_menu.gd
