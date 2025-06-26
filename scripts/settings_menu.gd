@@ -9,7 +9,7 @@ extends Control
 # Update these paths to match your actual scene structure
 @onready var name_input = $VBoxContainer/"LineEdit (NameInput)"
 @onready var character_select = $VBoxContainer/"OptionButton (CharacterSelect)"
-@onready var character_preview = $VBoxContainer/"TextureRect (CharacterPreview)"
+@onready var character_preview = $"TextureRect (CharacterPreview)"
 @onready var back_button = $VBoxContainer/HBoxContainer/BackButton
 @onready var start_button = $VBoxContainer/HBoxContainer/StartButton
 
