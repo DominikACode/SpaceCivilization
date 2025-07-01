@@ -201,10 +201,6 @@ text = "Resource1"
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 
-[node name="res5" type="Label" parent="UI/MenuPanel/HBoxContainer/TabContainer2/Resources/VBoxContainer"]
-layout_mode = 2
-text = "Resource1"
-
 [node name="MarginContainer5" type="MarginContainer" parent="UI/MenuPanel/HBoxContainer/TabContainer2/Resources/VBoxContainer"]
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
