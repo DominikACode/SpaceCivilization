@@ -5,11 +5,14 @@ extends Button
 
 
 func _on_Newgame_pressed() -> void:
-	TransitionManager.transition_to_scene("res://scenes/settings_menu.tscn")
+	
+	
+	#await TransitionManager.play_fade_in()
+	await TransitionManager.transition_to_scene("res://scenes/settings_menu.tscn")
 	#TransitionManager.transition_to_scene("res://scenes/game.tscn")
 	#InGameGui.visible = true
 	
 	print("New game button pressed")
-
+	InGameGui.visible = true
 
 	

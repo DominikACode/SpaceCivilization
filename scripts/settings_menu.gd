@@ -13,6 +13,10 @@ extends Control
 @onready var back_button = $VBoxContainer/HBoxContainer/BackButton
 @onready var start_button = $VBoxContainer/HBoxContainer/StartButton
 
+
+signal start_game()
+
+
 func _ready():
 	# Debug print to verify node paths
 	print("NameInput exists:", name_input != null)
@@ -26,8 +30,8 @@ func _ready():
 	
 	# Connect signals
 	character_select.item_selected.connect(_on_character_selected)
-	back_button.pressed.connect(_on_back_pressed)
-	start_button.pressed.connect(_on_start_pressed)
+	#back_button.pressed.connect(_on_back_pressed)
+	#start_button.pressed.connect(_on_start_pressed)
 
 func _on_character_selected(index: int):
 	var selected = character_select.get_item_text(index)
@@ -45,9 +49,11 @@ func _on_start_pressed():
 	# Save settings
 	GameSettings.player_name = name_input.text
 	GameSettings.character_type = character_select.get_item_text(character_select.selected)
-	
-	TransitionManager.transition_to_scene("res://scenes/game.tscn")
-	InGameGui.visible = true
+	TransitionManager.play_fade_in()
+	await TransitionManager.transition_to_scene("res://scenes/game.tscn")
+	await TransitionManager.play_fade_out()
+	print("sdsdsdsdsdsds")
+	InGameGui.get_node("UI").visible = true
 
 func _on_back_pressed():
 	TransitionManager.transition_to_scene("res://scenes/main_menu.tscn")
