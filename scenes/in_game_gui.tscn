@@ -5,17 +5,17 @@
 [ext_resource type="Script" uid="uid://dtup2ihqrs4wd" path="res://scripts/tab_container.gd" id="3_8kydy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x4u1r"]
-bg_color = Color(0.484742, 0.038263, 0.683125, 1)
+bg_color = Color(0.134851, 0.0075367, 0.169417, 1)
 border_width_left = 10
 border_width_top = 10
 border_width_right = 10
 border_width_bottom = 10
-border_color = Color(0.192219, 0.406887, 0.868778, 1)
+border_color = Color(0.268895, 0.00271645, 0.234081, 1)
 border_blend = true
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
+corner_radius_top_left = 120
+corner_radius_top_right = 120
+corner_radius_bottom_right = 120
+corner_radius_bottom_left = 120
 
 [sub_resource type="LabelSettings" id="LabelSettings_x4u1r"]
 
@@ -43,8 +43,8 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -180.0
-offset_bottom = 53.0
+offset_left = -207.0
+offset_bottom = 109.0
 grow_horizontal = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_x4u1r")
 
@@ -55,10 +55,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -78.0
-offset_top = -19.5
-offset_right = 78.0
-offset_bottom = 3.5
+offset_left = -97.0
+offset_top = -47.0
+offset_right = 95.0
+offset_bottom = 4.0
 grow_horizontal = 2
 grow_vertical = 2
 label_settings = SubResource("LabelSettings_x4u1r")

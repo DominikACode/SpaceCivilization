@@ -125,7 +125,7 @@ func _on_slot_button_pressed(popup: PopupMenu) -> void:
 		var button_size = button.get_size()  # zamiast button.rect_size
 		var popup_size = popup.get_size()
 		var height = popup_size.y
-		popup.position = button_pos - Vector2(-60, 120)
+		popup.position = button_pos - Vector2(-60, 145)
 	popup.popup()  # pokaż menu rozwijane
 	
 
