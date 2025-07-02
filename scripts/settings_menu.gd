@@ -13,9 +13,7 @@ extends Control
 @onready var back_button = $VBoxContainer/HBoxContainer/BackButton
 @onready var start_button = $VBoxContainer/HBoxContainer/StartButton
 
-
 signal start_game()
-
 
 func _ready():
 	# Debug print to verify node paths
@@ -34,6 +32,7 @@ func _ready():
 	#start_button.pressed.connect(_on_start_pressed)
 
 func _on_character_selected(index: int):
+	AudioController.play_button_unwrap_click()
 	var selected = character_select.get_item_text(index)
 	var texture = load(character_options[selected])
 	if texture:
