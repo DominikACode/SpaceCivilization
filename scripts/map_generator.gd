@@ -75,7 +75,7 @@ func placeStars() -> void:
 				else:
 					point.set("planet_id", chosenName)
 				#genereting the slots for buildings
-				var slots : Array[int] = []
+				var slots: Array = []
 				var arraySize : int = rng.randi_range(5, 12)
 				slots.resize(arraySize)
 				slots.fill(0)
