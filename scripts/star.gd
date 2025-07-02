@@ -6,6 +6,8 @@ extends Node3D
 @onready var label = $Label3D  # dostosuj ścieżkę, jeśli Label3D jest głębiej
 #stores the spaceship that is highlighting the star
 var selectedBy=null
+#placeholder for bulding slots
+var building_slots : Array = []
 
 
 
@@ -50,6 +52,8 @@ func _on_static_body_3d_input_event(camera: Node, event: InputEvent, event_posit
 			var gui_node = get_node("/root/InGameGui/UI")
 			if gui_node and gui_node.has_method("update_tab_name"):
 				gui_node.update_tab_name(planet_id)
+			if gui_node and gui_node.has_method("update_building_slots"):
+				gui_node.update_building_slots(self)
 
 				
 				

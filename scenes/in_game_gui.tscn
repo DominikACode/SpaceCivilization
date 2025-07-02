@@ -112,7 +112,7 @@ grow_vertical = 0
 theme = ExtResource("2_54bmv")
 text = "Planet Resources"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/MenuPanel"]
+[node name="BuildingSlotsContainer" type="HBoxContainer" parent="UI/MenuPanel"]
 layout_mode = 1
 anchors_preset = 11
 anchor_left = 1.0
@@ -125,83 +125,87 @@ offset_bottom = -9.0
 grow_horizontal = 0
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="UI/MenuPanel/HBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="UI/MenuPanel/BuildingSlotsContainer"]
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 
-[node name="TabContainer" type="TabContainer" parent="UI/MenuPanel/HBoxContainer"]
+[node name="TabContainer" type="TabContainer" parent="UI/MenuPanel/BuildingSlotsContainer"]
 custom_minimum_size = Vector2(900, 0)
 layout_mode = 2
 current_tab = 0
 script = ExtResource("3_8kydy")
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="UI/MenuPanel/HBoxContainer/TabContainer"]
+[node name="BuildingSlotGrid" type="GridContainer" parent="UI/MenuPanel/BuildingSlotsContainer/TabContainer"]
+custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
+theme_override_constants/h_separation = 6
+theme_override_constants/v_separation = 6
+columns = 4
 metadata/_tab_index = 0
 
-[node name="MarginContainer2" type="MarginContainer" parent="UI/MenuPanel/HBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="UI/MenuPanel/BuildingSlotsContainer"]
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 
-[node name="TabContainer2" type="TabContainer" parent="UI/MenuPanel/HBoxContainer"]
+[node name="PlanetResourcesContainer" type="TabContainer" parent="UI/MenuPanel/BuildingSlotsContainer"]
 custom_minimum_size = Vector2(600, 0)
 layout_mode = 2
 theme = SubResource("Theme_54bmv")
 tab_alignment = 1
 current_tab = 0
 
-[node name="Resources" type="HBoxContainer" parent="UI/MenuPanel/HBoxContainer/TabContainer2"]
+[node name="Resources" type="HBoxContainer" parent="UI/MenuPanel/BuildingSlotsContainer/PlanetResourcesContainer"]
 layout_mode = 2
 metadata/_tab_index = 0
 
-[node name="MarginContainer2" type="MarginContainer" parent="UI/MenuPanel/HBoxContainer/TabContainer2/Resources"]
+[node name="MarginContainer2" type="MarginContainer" parent="UI/MenuPanel/BuildingSlotsContainer/PlanetResourcesContainer/Resources"]
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="UI/MenuPanel/HBoxContainer/TabContainer2/Resources"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="UI/MenuPanel/BuildingSlotsContainer/PlanetResourcesContainer/Resources"]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="UI/MenuPanel/HBoxContainer/TabContainer2/Resources"]
+[node name="MarginContainer" type="MarginContainer" parent="UI/MenuPanel/BuildingSlotsContainer/PlanetResourcesContainer/Resources"]
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/MenuPanel/HBoxContainer/TabContainer2/Resources"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MenuPanel/BuildingSlotsContainer/PlanetResourcesContainer/Resources"]
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 
-[node name="res1" type="Label" parent="UI/MenuPanel/HBoxContainer/TabContainer2/Resources/VBoxContainer"]
+[node name="res1" type="Label" parent="UI/MenuPanel/BuildingSlotsContainer/PlanetResourcesContainer/Resources/VBoxContainer"]
 layout_mode = 2
 text = "Resource1"
 
-[node name="MarginContainer" type="MarginContainer" parent="UI/MenuPanel/HBoxContainer/TabContainer2/Resources/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="UI/MenuPanel/BuildingSlotsContainer/PlanetResourcesContainer/Resources/VBoxContainer"]
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 
-[node name="res2" type="Label" parent="UI/MenuPanel/HBoxContainer/TabContainer2/Resources/VBoxContainer"]
+[node name="res2" type="Label" parent="UI/MenuPanel/BuildingSlotsContainer/PlanetResourcesContainer/Resources/VBoxContainer"]
 layout_mode = 2
 text = "Resource1"
 
-[node name="MarginContainer2" type="MarginContainer" parent="UI/MenuPanel/HBoxContainer/TabContainer2/Resources/VBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="UI/MenuPanel/BuildingSlotsContainer/PlanetResourcesContainer/Resources/VBoxContainer"]
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 
-[node name="res3" type="Label" parent="UI/MenuPanel/HBoxContainer/TabContainer2/Resources/VBoxContainer"]
+[node name="res3" type="Label" parent="UI/MenuPanel/BuildingSlotsContainer/PlanetResourcesContainer/Resources/VBoxContainer"]
 layout_mode = 2
 text = "Resource1"
 
-[node name="MarginContainer3" type="MarginContainer" parent="UI/MenuPanel/HBoxContainer/TabContainer2/Resources/VBoxContainer"]
+[node name="MarginContainer3" type="MarginContainer" parent="UI/MenuPanel/BuildingSlotsContainer/PlanetResourcesContainer/Resources/VBoxContainer"]
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 
-[node name="res4" type="Label" parent="UI/MenuPanel/HBoxContainer/TabContainer2/Resources/VBoxContainer"]
+[node name="res4" type="Label" parent="UI/MenuPanel/BuildingSlotsContainer/PlanetResourcesContainer/Resources/VBoxContainer"]
 layout_mode = 2
 text = "Resource1"
 
-[node name="MarginContainer4" type="MarginContainer" parent="UI/MenuPanel/HBoxContainer/TabContainer2/Resources/VBoxContainer"]
+[node name="MarginContainer4" type="MarginContainer" parent="UI/MenuPanel/BuildingSlotsContainer/PlanetResourcesContainer/Resources/VBoxContainer"]
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 
-[node name="MarginContainer5" type="MarginContainer" parent="UI/MenuPanel/HBoxContainer/TabContainer2/Resources/VBoxContainer"]
+[node name="MarginContainer5" type="MarginContainer" parent="UI/MenuPanel/BuildingSlotsContainer/PlanetResourcesContainer/Resources/VBoxContainer"]
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 

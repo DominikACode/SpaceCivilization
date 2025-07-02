@@ -8,6 +8,8 @@ var rng= RandomNumberGenerator.new()
 var playerPoint
 var mouse=Vector2()
 
+
+
 var planet_names = [
 	"Aelion", "Zarenth", "Velthar", "Novera", "Xandria", "Elyra", "Korith", "Virelia", "Jarnis", "Orvion",
 	"Thalor", "Quorra", "Icaron", "Zebulon", "Draveth", "Solith", "Astrix", "Miralon", "Vantaris", "Ephora",
@@ -72,6 +74,13 @@ func placeStars() -> void:
 					
 				else:
 					point.set("planet_id", chosenName)
+				#genereting the slots for buildings
+				var slots : Array[int] = []
+				var arraySize : int = rng.randi_range(5, 12)
+				slots.resize(arraySize)
+				slots.fill(0)
+				point.building_slots = slots
+				
 
 func connectStars() ->void:
 	for pointID in astar3.get_point_ids():
