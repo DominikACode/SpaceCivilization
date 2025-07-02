@@ -10,4 +10,5 @@ void vertex() {
 
 void fragment() {
 	ALBEDO = color;
+	ALPHA=0.1;
 }

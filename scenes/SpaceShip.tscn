@@ -1,31 +1,18 @@
-[gd_scene load_steps=8 format=3 uid="uid://dmdk4q4salsi1"]
+[gd_scene load_steps=6 format=3 uid="uid://dmdk4q4salsi1"]
 
 [ext_resource type="Script" uid="uid://dutr56euw2vjv" path="res://scripts/space_ship.gd" id="1_qw07e"]
-[ext_resource type="Shader" uid="uid://cxr8ru5hwnmqv" path="res://shaders/higlightOutline.gdshader" id="2_tjp6f"]
-[ext_resource type="Shader" uid="uid://c4dhfw57bu84b" path="res://shaders/outline.gdshader" id="3_kapxi"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_xra4r"]
-render_priority = 0
-shader = ExtResource("2_tjp6f")
-shader_parameter/color = Color(1, 0.866395, 0.571788, 1)
-shader_parameter/thickness = 0.03
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ye60j"]
-render_priority = 0
-shader = ExtResource("3_kapxi")
-shader_parameter/color = Color(200, 200, 200, 1)
-shader_parameter/thickness = 0.07
+[ext_resource type="Material" uid="uid://cd7e05ly5i7wh" path="res://shaders/HighlightOutline.tres" id="2_qw07e"]
+[ext_resource type="Material" uid="uid://dr6sjogoh1no2" path="res://shaders/SelectionOutline.tres" id="3_tjp6f"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_cqcgy"]
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_cjnfv"]
-data = PackedVector3Array(0, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0, 0.5, 0.5, 0, 0.5, -0.5, 0.5, -0.5, 0.5, 0, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0, 0.5, -0.5, 0, 0.5, 0.5, -0.5, -0.5, -0.5, 0, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qw07e"]
 
 [node name="SpaceShip" type="Node3D" node_paths=PackedStringArray("mesh")]
 script = ExtResource("1_qw07e")
 mesh = NodePath("RocketMesh")
-highlightMaterial = SubResource("ShaderMaterial_xra4r")
-selectionMaterial = SubResource("ShaderMaterial_ye60j")
+highlightMaterial = ExtResource("2_qw07e")
+selectionMaterial = ExtResource("3_tjp6f")
 speed = 4
 animationVelocity = 3.0
 
@@ -36,7 +23,7 @@ mesh = SubResource("CapsuleMesh_cqcgy")
 [node name="StaticBody3D" type="StaticBody3D" parent="RocketMesh"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RocketMesh/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_cjnfv")
+shape = SubResource("CapsuleShape3D_qw07e")
 
 [connection signal="input_event" from="RocketMesh/StaticBody3D" to="." method="_on_static_body_3d_input_event"]
 [connection signal="mouse_entered" from="RocketMesh/StaticBody3D" to="." method="_on_static_body_3d_mouse_entered"]
