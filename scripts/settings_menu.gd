@@ -22,6 +22,8 @@ var last_names = [
 @onready var random_name_button = $RandomNameButton
 @onready var seed_checkbox = $VBoxContainer/UseCustomSeed
 @onready var seed_input = $VBoxContainer/SeedInput
+@onready var custom_seed_button = $VBoxContainer/UseCustomSeedButton
+var use_custom_seed := false
 
 signal start_game()
 
@@ -42,10 +44,12 @@ func _ready():
 	# Ensure no character is selected by default
 	character_select.select(0)
 	character_preview.texture = null
-	
-	seed_checkbox.toggled.connect(_on_seed_checkbox_toggled)
+	# Randon seed by default
 	seed_input.editable = false
-
+	
+	custom_seed_button.pressed.connect(_on_custom_seed_button_pressed)
+	_update_custom_seed_button()
+	
 	# Connect signals
 	character_select.item_selected.connect(_on_character_selected)
 	random_name_button.pressed.connect(random_name)
@@ -71,11 +75,24 @@ func _on_character_selected(index: int):
 	else:
 		print("Error loading texture for:", selected)
 
-func _on_seed_checkbox_toggled(button_pressed: bool):
-	seed_input.editable = button_pressed
-	GameSettings.use_custom_seed = button_pressed
-	if !button_pressed:
+func _on_custom_seed_button_pressed():
+	use_custom_seed = !use_custom_seed
+	_update_custom_seed_button()
+	
+func _update_custom_seed_button():
+	if use_custom_seed:
+		custom_seed_button.text = "Use Custom Seed: YES"
+		seed_input.editable = true
+		seed_input.visible = true
+		GameSettings.use_custom_seed = true
+	else:
+		custom_seed_button.text = "Use Custom Seed: NO"
 		seed_input.text = ""
+		seed_input.editable = false
+		seed_input.visible = false
+		GameSettings.use_custom_seed = false
+
+
 
 func _on_start_pressed():
 	AudioController.play_button_click()

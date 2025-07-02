@@ -30,14 +30,23 @@ offset_bottom = 721.0
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-text = "Choose Your Commander"
+text = "Settings"
+horizontal_alignment = 1
 
 [node name="LineEdit (NameInput)" type="LineEdit" parent="VBoxContainer"]
 layout_mode = 2
-text = "Name"
+placeholder_text = "--Enter Your Name--"
 
 [node name="OptionButton (CharacterSelect)" type="OptionButton" parent="VBoxContainer"]
 layout_mode = 2
+
+[node name="UseCustomSeedButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "USE CUSTOM SEED: NO"
+
+[node name="SeedInput" type="LineEdit" parent="VBoxContainer"]
+layout_mode = 2
+placeholder_text = "--Enter World's Seed--"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -55,12 +64,6 @@ size_flags_vertical = 3
 toggle_mode = true
 action_mode = 0
 text = "START"
-
-[node name="UseCustomSeed" type="CheckBox" parent="VBoxContainer"]
-layout_mode = 2
-
-[node name="SeedInput" type="LineEdit" parent="VBoxContainer"]
-layout_mode = 2
 
 [node name="RandomNameButton" type="Button" parent="."]
 layout_mode = 0
