@@ -56,6 +56,12 @@ toggle_mode = true
 action_mode = 0
 text = "START"
 
+[node name="UseCustomSeed" type="CheckBox" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="SeedInput" type="LineEdit" parent="VBoxContainer"]
+layout_mode = 2
+
 [node name="RandomNameButton" type="Button" parent="."]
 layout_mode = 0
 offset_left = 1748.0

@@ -20,7 +20,8 @@ var last_names = [
 @onready var back_button = $VBoxContainer/HBoxContainer/BackButton
 @onready var start_button = $VBoxContainer/HBoxContainer/StartButton
 @onready var random_name_button = $RandomNameButton
-
+@onready var seed_checkbox = $VBoxContainer/UseCustomSeed
+@onready var seed_input = $VBoxContainer/SeedInput
 
 signal start_game()
 
@@ -41,6 +42,9 @@ func _ready():
 	# Ensure no character is selected by default
 	character_select.select(0)
 	character_preview.texture = null
+	
+	seed_checkbox.toggled.connect(_on_seed_checkbox_toggled)
+	seed_input.editable = false
 
 	# Connect signals
 	character_select.item_selected.connect(_on_character_selected)
@@ -67,6 +71,11 @@ func _on_character_selected(index: int):
 	else:
 		print("Error loading texture for:", selected)
 
+func _on_seed_checkbox_toggled(button_pressed: bool):
+	seed_input.editable = button_pressed
+	GameSettings.use_custom_seed = button_pressed
+	if !button_pressed:
+		seed_input.text = ""
 
 func _on_start_pressed():
 	AudioController.play_button_click()
@@ -76,6 +85,11 @@ func _on_start_pressed():
 	if character_select.get_item_text(character_select.selected) == "-- Select Character --":
 		print("Please select a character.")
 		return
+		
+	if GameSettings.use_custom_seed and seed_input.text.is_valid_int():
+		GameSettings.world_seed = seed_input.text.to_int()
+	else:
+		GameSettings.world_seed = randi()  # Generate random seed
 
 	# Save settings
 	GameSettings.player_name = name_input.text
