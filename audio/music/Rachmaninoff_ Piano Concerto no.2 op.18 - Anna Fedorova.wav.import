@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://xc2ga4oppf33"
+path="res://.godot/imported/Rachmaninoff_ Piano Concerto no.2 op.18 - Anna Fedorova.wav-406be2852fa08ecf0094015111e5c75e.sample"
+
+[deps]
+
+source_file="res://audio/music/Rachmaninoff_ Piano Concerto no.2 op.18 - Anna Fedorova.wav"
+dest_files=["res://.godot/imported/Rachmaninoff_ Piano Concerto no.2 op.18 - Anna Fedorova.wav-406be2852fa08ecf0094015111e5c75e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

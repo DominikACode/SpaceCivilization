@@ -6,7 +6,6 @@ extends Control
 	"Warrior": "res://assets/GameSettingsMenu/Warrior.png"
 }
 
-# Update these paths to match your actual scene structure
 @onready var name_input = $VBoxContainer/"LineEdit (NameInput)"
 @onready var character_select = $VBoxContainer/"OptionButton (CharacterSelect)"
 @onready var character_preview = $"TextureRect (CharacterPreview)"

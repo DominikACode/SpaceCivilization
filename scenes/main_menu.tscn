@@ -1,12 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://bmj2ggh33vcy"]
+[gd_scene load_steps=8 format=3 uid="uid://bmj2ggh33vcy"]
 
 [ext_resource type="Texture2D" uid="uid://exrf528wyc7e" path="res://assets/MainMenu/mainmenu_theme.jpg" id="1_l6cm7"]
+[ext_resource type="Script" uid="uid://l5xqy181vulc" path="res://scripts/main_menu.gd" id="1_rtw2f"]
 [ext_resource type="Script" uid="uid://cirggkowo8sxx" path="res://scripts/new_game.gd" id="2_8ln24"]
 [ext_resource type="Script" uid="uid://b6g8ysnxop8bf" path="res://scripts/load_game.gd" id="3_rtw2f"]
 [ext_resource type="Script" uid="uid://dbmbxcdjdjiqu" path="res://scripts/settings.gd" id="4_oa1go"]
+[ext_resource type="Texture2D" uid="uid://818hmx6jhp15" path="res://assets/MainMenu/projekt okładki do gry.png" id="4_tbmy8"]
 [ext_resource type="Script" uid="uid://brxkq5whyhrqo" path="res://scripts/exit.gd" id="5_tbmy8"]
 
 [node name="MainMenu" type="CanvasLayer"]
+script = ExtResource("1_rtw2f")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(960, 540)
@@ -39,6 +42,13 @@ grow_vertical = 2
 layout_mode = 2
 text = "New game"
 script = ExtResource("2_8ln24")
+
+[node name="SpaceCivilization" type="TextureRect" parent="Menu/StartMenu/New_game"]
+offset_left = -728.0
+offset_top = -717.0
+offset_right = 1182.0
+offset_bottom = 366.0
+texture = ExtResource("4_tbmy8")
 
 [node name="MarginContainer" type="MarginContainer" parent="Menu/StartMenu"]
 layout_mode = 2
