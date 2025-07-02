@@ -30,12 +30,15 @@ var planet_names = [
 	"Jorvan", "Dysora", "Thryon", "Xeltrix", "Karenth", "Olvaris", "Urythra", "Varkon", "Nemphis", "Silvaron",
 	"Yzthera", "Krelon", "Asmaris", "Evrion", "Kelthar", "Phyrion", "Zandros", "Velthora", "Ultrax", "Arthenor",
 	"Zoltrix", "Krythos", "Varneth", "Thandros", "Myrrik", "Seldara", "Aurexis", "Zelmaris", "Xyrentha", "Lorvax",
-	"Omthar", "Tyrron", "Vinthos", "Carthra", "Melvaris", "Nythros", "Gelvaron", "Orlaxis", "Thaltrix", "Xandros"
+	"Omthar", "Tyrron", "Vinthos", "Carthra", "Melvaris", "Nythros", "Gelvaron", "Orlaxis", "Thaltrix", "Xandros", 
+	"A-Nton", 
 ]
 
-
 func _ready() -> void:
-	randomize()
+	if GameSettings.world_seed != 0:
+		rng.seed = GameSettings.world_seed
+	else:
+		randomize()  # Fully random if no seed specified
 	player=get_parent().get_node("Player")
 	makeMap()
 
