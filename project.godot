@@ -20,6 +20,7 @@ config/icon="res://assets/icon.svg"
 TransitionManager="*res://scenes/transition_manager.tscn"
 GameSettings="*res://scripts/GameSettings.gd"
 InGameGui="*res://scenes/in_game_gui.tscn"
+AudioController="*res://scenes/AudioController.tscn"
 
 [display]
 

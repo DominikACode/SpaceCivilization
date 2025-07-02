@@ -42,6 +42,7 @@ func _on_character_selected(index: int):
 		print("Error loading texture for:", selected)
 
 func _on_start_pressed():
+	AudioController.play_button_click()
 	if name_input.text.strip_edges() == "":
 		name_input.placeholder_text = "Please enter a name!"
 		return
@@ -56,4 +57,5 @@ func _on_start_pressed():
 	InGameGui.get_node("UI").visible = true
 
 func _on_back_pressed():
+	AudioController.play_button_click()
 	TransitionManager.transition_to_scene("res://scenes/main_menu.tscn")

@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6qy3pnhvancj"]
+
+[ext_resource type="Script" uid="uid://d2yaa3qjoov3p" path="res://scripts/AudioController.gd" id="1_cedxo"]
+[ext_resource type="AudioStream" uid="uid://bkk73yaffa2hk" path="res://audio/music/Rachmaninoff_ Piano Concerto no.2 op.18 - Anna Fedorova - Complete Live Concert - HD.mp3" id="1_e6jji"]
+
+[node name="AudioController" type="Node2D"]
+script = ExtResource("1_cedxo")
+
+[node name="MenuMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_e6jji")
+
+[node name="Transition" type="AudioStreamPlayer2D" parent="."]
