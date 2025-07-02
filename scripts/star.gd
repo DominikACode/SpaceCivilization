@@ -146,6 +146,8 @@ func _on_static_body_3d_input_event(camera: Node, event: InputEvent, event_posit
 				gui_node.update_tab_name(planet_id)
 			if gui_node and gui_node.has_method("update_building_slots"):
 				gui_node.update_building_slots(self)
+			if gui_node and gui_node.has_method("update_income_labels"):
+				gui_node.update_income_labels(self)
 
 				
 				

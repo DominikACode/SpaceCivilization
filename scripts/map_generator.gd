@@ -76,7 +76,7 @@ func placeStars() -> void:
 				var slots: Array = []
 				var arraySize : int = rng.randi_range(5, 12)
 				slots.resize(arraySize)
-				slots.fill(0)
+				slots.fill("Empty")
 				point.building_slots = slots
 				
 
