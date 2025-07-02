@@ -51,9 +51,7 @@ func placeStars() -> void:
 					return
 				var point = preload("res://scenes/Star.tscn").instantiate()
 				add_child(point)
-				point.global_position=Vector3(j*4+rng.randf_range(0,3),0,i*6+rng.randf_range(0,3))
-				var rngScale=rng.randf_range(0.2,0.6);
-				point.scale=Vector3(rngScale,rngScale,rngScale)
+				point.global_position=Vector3(j*6+rng.randf_range(0,2),0,i*6+rng.randf_range(0,2))
 
 				var randIndex = rng.randi_range(0, planet_names.size() - 1)
 				var chosenName = planet_names[randIndex]

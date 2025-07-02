@@ -1,32 +1,91 @@
-[gd_scene load_steps=10 format=3 uid="uid://bipajmsw72hc5"]
+[gd_scene load_steps=9 format=3 uid="uid://bipajmsw72hc5"]
 
 [ext_resource type="Script" uid="uid://bey576l2kpehn" path="res://scripts/star.gd" id="1_q7s46"]
-[ext_resource type="Shader" uid="uid://c4dhfw57bu84b" path="res://shaders/outline.gdshader" id="2_ttqrr"]
-[ext_resource type="Shader" uid="uid://c5cwv1aru7sbl" path="res://shaders/Star.gdshader" id="3_rap1v"]
-[ext_resource type="Texture2D" uid="uid://dstj2lrnnlyie" path="res://assets/Turbulence 13 - 512x512.png" id="4_gu30m"]
-[ext_resource type="Texture2D" uid="uid://1ginnlvrg6rt" path="res://assets/Super Perlin 1 - 512x512.png" id="5_fpoa3"]
+[ext_resource type="Material" uid="uid://dr6sjogoh1no2" path="res://shaders/SelectionOutline.tres" id="2_q7s46"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_imql4"]
-render_priority = 0
-shader = ExtResource("2_ttqrr")
-shader_parameter/color = Color(200, 200, 200, 1)
-shader_parameter/thickness = 0.07
+[sub_resource type="SphereMesh" id="SphereMesh_1b021"]
+resource_local_to_scene = true
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_vk50b"]
+[sub_resource type="Shader" id="Shader_t7biv"]
+code = "shader_type spatial;
+render_mode specular_schlick_ggx;
+
+uniform float Glow_Power : hint_range(0,10) = 3;
+uniform float Lightness_Difference : hint_range(0,10) = 3;
+uniform vec4 Sun_Color : source_color = vec4(1.0, 0.0, 0.0, 1.0);
+uniform vec3 Core_Color : source_color = vec3(1.0, 0.0, 0.0);
+
+uniform sampler2D voronoi_noise;
+uniform sampler2D emission_noise;
+varying vec3 vertex_pos;
+uniform float waveSpeed : hint_range(0,1) = 0.1;
+uniform float fresnel : hint_range(0,2) = 1.0;
+
+uniform float scale : hint_range(0,2) = 0.01;
+uniform float blendSharpness : hint_range(0,2) = 0.0;
+
+// TRIPLANAR FUNCTION
+vec4 triplanar_texture(vec3 position, vec3 normal, vec2 offset, sampler2D noise) {
+	vec4 colX = texture(noise, position.xy * scale + offset);
+	vec4 colY = texture(noise, position.xz * scale + offset);
+	vec4 colZ = texture(noise, position.zy * scale + offset);
+
+	vec3 blendWeight = abs(normal);
+	blendWeight = vec3(pow(blendWeight.x, blendSharpness), pow(blendWeight.y, blendSharpness), pow(blendWeight.z, blendSharpness));
+	blendWeight /= (blendWeight.x + blendWeight.y + blendWeight.z);
+
+	return colX * blendWeight.x + colY * blendWeight.y + colZ * blendWeight.z;
+}
+
+void vertex() {
+	vertex_pos = VERTEX;
+}
+
+void fragment() {
+	// Fresnel
+	float fresnel_out = pow(fresnel - clamp(dot(NORMAL, VIEW), 0.0, fresnel), fresnel);
+
+	vec2 waveOffsetA = vec2(TIME * waveSpeed, TIME * waveSpeed * 0.8);
+	vec2 waveOffsetB = vec2(TIME * waveSpeed * - 0.8, TIME * waveSpeed * -0.3);
+	vec2 result_offset = waveOffsetA + waveOffsetB;
+
+	vec3 cloud_tex = triplanar_texture(vertex_pos, NORMAL, result_offset, voronoi_noise).rgb;
+	vec3 cloud_tex_with_light = cloud_tex * vec3(Lightness_Difference);
+	vec3 cloud_tex_with_light_with_color = cloud_tex_with_light * Sun_Color.rgb;
+	vec3 cloud_tex_with_light_with_color_with_glow = vec3(Glow_Power) * cloud_tex_with_light_with_color;
+
+	vec3 noise_tex = triplanar_texture(vertex_pos, NORMAL, result_offset, emission_noise).rgb;
+	vec3 result = cloud_tex_with_light_with_color_with_glow * noise_tex;
+	ALBEDO=Core_Color ;
+	EMISSION = vec3(fresnel_out) * result;
+}
+
+//void light() {
+//	// Called for every pixel for every light affecting the material.
+//	// Uncomment to replace the default light processing function with this one.
+//}
+"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xpnm2"]
+load_path = "res://.godot/imported/Turbulence 13 - 512x512.png-b40b997001d5fef052a60b7ba0b681e7.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6lv4g"]
+load_path = "res://.godot/imported/Super Perlin 1 - 512x512.png-54ddb1c457eee6d9bb84234c8004f9b9.s3tc.ctex"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t7biv"]
+resource_local_to_scene = true
 render_priority = 0
-shader = ExtResource("3_rap1v")
-shader_parameter/Glow_Power = 10.0
-shader_parameter/Lightness_Difference = 10.0
-shader_parameter/Sun_Color = Color(0.612743, 0.157302, 0, 1)
-shader_parameter/Core_Color = Color(0.539797, 0, 0.00658626, 1)
-shader_parameter/voronoi_noise = ExtResource("5_fpoa3")
-shader_parameter/emission_noise = ExtResource("4_gu30m")
-shader_parameter/waveSpeed = 0.265
+shader = SubResource("Shader_t7biv")
+shader_parameter/Glow_Power = 5.506
+shader_parameter/Lightness_Difference = 5.843
+shader_parameter/Sun_Color = Color(0.0231788, 0.332485, 0.472589, 1)
+shader_parameter/Core_Color = Color(0.119465, 0.440688, 0.485283, 1)
+shader_parameter/voronoi_noise = SubResource("CompressedTexture2D_6lv4g")
+shader_parameter/emission_noise = SubResource("CompressedTexture2D_xpnm2")
+shader_parameter/waveSpeed = 0.366
 shader_parameter/fresnel = 1.593
 shader_parameter/scale = 2.0
 shader_parameter/blendSharpness = 0.0
-
-[sub_resource type="SphereMesh" id="SphereMesh_1b021"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_1b021"]
 
@@ -34,18 +93,17 @@ shader_parameter/blendSharpness = 0.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18533, 0)
 script = ExtResource("1_q7s46")
 mesh = NodePath("MeshInstance3D")
-selectionMaterial = SubResource("ShaderMaterial_imql4")
+selectionMaterial = ExtResource("2_q7s46")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-material_override = SubResource("ShaderMaterial_vk50b")
 cast_shadow = 0
 gi_mode = 0
 mesh = SubResource("SphereMesh_1b021")
+surface_material_override/0 = SubResource("ShaderMaterial_t7biv")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 shape = SubResource("SphereShape3D_1b021")
 
 [node name="Label3D" type="Label3D" parent="."]
