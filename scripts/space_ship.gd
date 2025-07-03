@@ -10,6 +10,7 @@ var selected:= false
 # these variables simply hold important numbers
 var distanceMovedThisTurn
 var mapManager
+var ships=[]
 var movementVector=Vector3(0,0,0)
 var travelpoints=[0]
 #when the spaceship object is created it MUST be a child of the map generator as it uses a lot of it's data
@@ -17,6 +18,24 @@ func _ready() -> void:
 	mapManager=get_parent()
 	distanceMovedThisTurn=0
 #function tied to mouse signals runs when the mouse enters the static body colision shape
+func addShip(ship):
+#used for adding ships to the current group
+	ships.append(ship.ships)
+func merge(shipGroup):
+#used for merging two ship groups
+	ships.append(shipGroup.ships)
+	shipGroup.remove_child(shipGroup)
+func split(shipsToSplit):
+#used for splitting a ship group into two smaller ones
+	for i in shipsToSplit:
+		ships.erase(i)
+	var newShip= preload("res://addons/naejimer_3d_planet_generator/scenes/planet_gaseous.tscn").instantiate()
+	add_sibling(newShip)
+	newShip.addShip(shipsToSplit)
+	newShip.highlightStars(true)
+func battle():
+	#not quite sure how to make this work without ownership being up and running
+	pass
 func _on_static_body_3d_mouse_entered()->void:
 	if not selected:
 		mesh.material_overlay=highlightMaterial
