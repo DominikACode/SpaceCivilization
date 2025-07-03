@@ -114,6 +114,12 @@ z_as_relative = false
 
 [node name="MainMenu" parent="." instance=ExtResource("5_6ic70")]
 
+[node name="SpaceCivilization" parent="MainMenu/Menu/StartMenu/New_game" index="0"]
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 1910.0
+offset_bottom = 1083.0
+
 [node name="GameSettingsMenu" parent="." instance=ExtResource("5_82ayj")]
 
 [node name="Sprite2D" parent="GameSettingsMenu" index="0"]

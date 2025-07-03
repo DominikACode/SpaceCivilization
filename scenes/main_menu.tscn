@@ -50,6 +50,14 @@ layout_mode = 2
 text = "New game"
 script = ExtResource("2_8ln24")
 
+[node name="SpaceCivilization" type="TextureRect" parent="Menu/StartMenu/New_game"]
+layout_mode = 0
+offset_left = -728.0
+offset_top = -717.0
+offset_right = 1182.0
+offset_bottom = 366.0
+texture = ExtResource("4_tbmy8")
+
 [node name="MarginContainer" type="MarginContainer" parent="Menu/StartMenu"]
 layout_mode = 2
 theme_override_constants/margin_top = 2

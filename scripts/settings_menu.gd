@@ -20,9 +20,9 @@ var last_names = [
 @onready var back_button = $VBoxContainer/HBoxContainer/BackButton
 @onready var start_button = $VBoxContainer/HBoxContainer/StartButton
 @onready var random_name_button = $RandomNameButton
-#@onready var seed_checkbox = $VBoxContainer/UseCustomSeed
-@onready var seed_input = $VBoxContainer/SeedInput
 @onready var custom_seed_button = $VBoxContainer/UseCustomSeedButton
+@onready var seed_input = $VBoxContainer/SeedInput
+
 var use_custom_seed := false
 
 signal start_game()
