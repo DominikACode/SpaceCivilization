@@ -157,5 +157,4 @@ func update_turn_label():
 
 
 func _on_button_pressed() -> void:
-	var player_name = "gay"
-	label.text =str( "Turn: " + str(player_name))
+	pass

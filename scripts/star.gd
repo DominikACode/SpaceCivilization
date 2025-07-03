@@ -9,6 +9,8 @@ var selectedBy=null
 #placeholder for bulding slots
 var building_slots : Array = []
 var rng = RandomNumberGenerator.new()
+var planet_owner: String = ""  # "" oznacza brak właściciela
+var owned_planets: Array = []
 var gold=0
 var science=0
 var planets=[]
@@ -148,6 +150,14 @@ func _on_static_body_3d_input_event(camera: Node, event: InputEvent, event_posit
 				gui_node.update_building_slots(self)
 			if gui_node and gui_node.has_method("update_income_labels"):
 				gui_node.update_income_labels(self)
+func update_label_color() -> void:
+	if planet_owner == GameSettings.player_name:
+		label.modulate = Color(0.2, 1.0, 0.4)  # zielonkawy / niebieskawy
+	else:
+		label.modulate = Color(1.0, 0.2, 0.2)  # czerwony
+func set_planet_owner(owner_name: String) -> void:
+	planet_owner = owner_name
+	update_label_color()
 
-				
-				
+
+	# Dodatkowo możesz wywołać aktualizację UI, powiadomienia itp.
