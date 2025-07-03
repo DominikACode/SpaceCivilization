@@ -3,10 +3,10 @@
 [ext_resource type="Script" uid="uid://dutr56euw2vjv" path="res://scripts/space_ship.gd" id="1_qw07e"]
 [ext_resource type="Material" uid="uid://cd7e05ly5i7wh" path="res://shaders/HighlightOutline.tres" id="2_qw07e"]
 [ext_resource type="Material" uid="uid://dr6sjogoh1no2" path="res://shaders/SelectionOutline.tres" id="3_tjp6f"]
+[ext_resource type="ArrayMesh" uid="uid://burntv4twq3xh" path="res://151707415750/export3dcoat.obj" id="4_tjp6f"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_cqcgy"]
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qw07e"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_kapxi"]
+size = Vector3(2.82751, 1.81744, 5.5565)
 
 [node name="SpaceShip" type="Node3D" node_paths=PackedStringArray("mesh")]
 script = ExtResource("1_qw07e")
@@ -17,13 +17,19 @@ speed = 4
 animationVelocity = 3.0
 
 [node name="RocketMesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.5, 0)
-mesh = SubResource("CapsuleMesh_cqcgy")
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.5, 0)
+mesh = ExtResource("4_tjp6f")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="RocketMesh"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RocketMesh/StaticBody3D"]
-shape = SubResource("CapsuleShape3D_qw07e")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0827026, 0.137298, -0.735405)
+shape = SubResource("BoxShape3D_kapxi")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.754519, 0)
+billboard = 1
 
 [connection signal="input_event" from="RocketMesh/StaticBody3D" to="." method="_on_static_body_3d_input_event"]
 [connection signal="mouse_entered" from="RocketMesh/StaticBody3D" to="." method="_on_static_body_3d_mouse_entered"]
