@@ -16,6 +16,13 @@ position = Vector2(960, 540)
 texture = ExtResource("1_l6cm7")
 flip_h = true
 
+[node name="SpaceCivilization" type="TextureRect" parent="."]
+offset_left = 7.0
+offset_top = -2.0
+offset_right = 1917.0
+offset_bottom = 1081.0
+texture = ExtResource("4_tbmy8")
+
 [node name="Menu" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
