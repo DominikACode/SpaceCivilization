@@ -159,3 +159,15 @@ func update_turn_label():
 func _on_button_pressed() -> void:
 	var player_name = "gay"
 	label.text =str( "Turn: " + str(player_name))
+	
+# Save functionality
+func _input(event):
+	if event.is_action_pressed("quick_save"):
+		# Verify we're in the game scene first
+		if get_tree().current_scene.name == "Game":  # Adjust if your scene name differs
+			SaveSystem.save_game(0)
+		else:
+			print("Can only save during gameplay")
+	elif event.is_action_pressed("quick_load"):
+		# Similar verification for loading
+		pass

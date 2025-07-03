@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=3 uid="uid://jdfhojs1yhyq"]
+
+[ext_resource type="Texture2D" uid="uid://2t488jvkh5tk" path="res://assets/panorama_image.png" id="1_ff44e"]
+[ext_resource type="Script" uid="uid://gsh6a5q53g77" path="res://scripts/sprite_2d.gd" id="3_xnhyc"]
+
+[node name="LoadMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("1_ff44e")
+script = ExtResource("3_xnhyc")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 1466.0
+offset_top = 295.0
+offset_right = 1743.0
+offset_bottom = 721.0
+
+[node name="Label (Title)" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Settings"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="SaveSlotsContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+toggle_mode = true
+action_mode = 0
+text = "BACK"
+
+[node name="DeleteButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+toggle_mode = true
+action_mode = 0
+text = "DELETE"
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/BackButton" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/DeleteButton" to="." method="_on_start_pressed"]

@@ -86,4 +86,5 @@ text = "Exit to pulpit"
 script = ExtResource("5_tbmy8")
 
 [connection signal="pressed" from="Menu/StartMenu/New_game" to="Menu/StartMenu/New_game" method="_on_Newgame_pressed"]
+[connection signal="pressed" from="Menu/StartMenu/Load_game" to="." method="_on_load_game_pressed"]
 [connection signal="pressed" from="Menu/StartMenu/Exit" to="Menu/StartMenu/Exit" method="_on_Exit_pressed"]

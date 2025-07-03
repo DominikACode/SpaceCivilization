@@ -1,9 +1,5 @@
 extends Button
 
-
-
-
-
 func _on_Newgame_pressed() -> void:
 	AudioController.play_button_click()
 	AudioController.stop_menu_music()

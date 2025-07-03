@@ -126,3 +126,25 @@ func smallestAngleBetweenPoints(pointIn,pointTo)->float:
 		if smallestAngle> BA.angle_to(BC):
 			smallestAngle = BA.angle_to(BC)
 	return smallestAngle
+
+func get_save_data() -> Dictionary:
+	var save_data = { 
+		"star_data": {}
+	}
+		
+	for point_id in astar3.get_point_ids():
+		var star = dictOfPoints[point_id]
+		save_data["star_data"][point_id] = {
+			"building_slots": star.building_slots,
+			"gold": star.gold,
+			"science": star.science
+		}
+	return save_data
+
+func load_save_data(data: Dictionary):
+	for point_id in data["star_data"]:
+		if dictOfPoints.has(point_id):
+			var star = dictOfPoints[point_id]
+			star.building_slots = data["star_data"][point_id]["building_slots"]
+			star.gold = data["star_data"][point_id]["gold"]
+			star.science = data["star_data"][point_id]["science"]
